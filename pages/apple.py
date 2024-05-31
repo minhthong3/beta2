@@ -1,8 +1,4 @@
-# Tiêu đề của ứng dụng
-st.title("Apple")
-    match menu_item:
-        case 'apple':
-            st.page_link('pages/apple.py')
-    
-        case 'google':
-            st.page_link('pages/google.py')
+import streamlit as st
+
+st.title("Apple Page")
+st.write("This is the Apple Page.")
