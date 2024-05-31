@@ -23,8 +23,8 @@ with st.sidebar:
 
 match menu_item:
     case 'apple':
-        st.write('apple page haha')
+        st.switch_page('pages/apple.py')
 
     case 'google':
-        st.write('google page')
+        st.switch_page('pages/google.py')
 
