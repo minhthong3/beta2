@@ -7,3 +7,4 @@ streamlit-option-menu
 streamlit_navigation_bar
 streamlit-on-Hover-tabs
 streamlit_antd_components
+toml
