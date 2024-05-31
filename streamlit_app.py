@@ -3,16 +3,6 @@ from streamlit_navigation_bar import st_navbar
 import streamlit_antd_components as sac
 import toml
 
-# Đọc cấu hình trang từ file pages.toml
-def load_pages():
-    with open("pages.toml", "r") as f:
-        return toml.load(f)["pages"]
-
-pages = load_pages()
-
-# Đặt các giá trị mặc định cho session_state nếu chưa có
-if 'menu_item' not in st.session_state:
-    st.session_state['menu_item'] = 'home'
 
 with st.sidebar:
     menu_item = sac.menu([
@@ -35,12 +25,9 @@ with st.sidebar:
 
     match menu_item:
         case 'apple':
-            st.session_state['menu_item'] = 'apple'
+        st.switch_page('pages/apple.py')
+    
+    match menu_item:
         case 'google':
-            st.session_state['menu_item'] = 'google'
+        st.switch_page('pages/google.py')
 
-# Hiển thị trang được chọn
-for page in pages:
-    if page["id"] == st.session_state['menu_item'] and not page.get("disabled", False):
-        exec(open(page["file"]).read())
-        break
