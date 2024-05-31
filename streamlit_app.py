@@ -21,10 +21,5 @@ with st.sidebar:
         ]),
     ], open_all=True)
 
-match menu_item:
-    case 'apple':
-        st.switch_page('pages/apple.py')
 
-    case 'google':
-        st.switch_page('pages/google.py')
 
