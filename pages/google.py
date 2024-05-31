@@ -1,2 +1,4 @@
-# Tiêu đề của ứng dụng
-st.title("gg")
+import streamlit as st
+
+st.title("Apple Page")
+st.write("This is the Apple Page.")
