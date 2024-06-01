@@ -1,5 +1,0 @@
-# File: .streamlit/config.toml
-
-[client]
-showSidebarNavigation = false
-
