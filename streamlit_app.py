@@ -1,18 +1,13 @@
 import streamlit as st
 import streamlit_antd_components as sac
-import toml
-import os
 
-# Đọc cấu hình trang từ file pages.toml
-def load_pages():
-    with open("pages.toml", "r") as f:
-        return toml.load(f)["pages"]
-
-pages = load_pages()
-
-# Đặt các giá trị mặc định cho session_state nếu chưa có
-if 'menu_item' not in st.session_state:
-    st.session_state['menu_item'] = 'home'
+# CSS để ẩn sidebar mặc định
+no_sidebar_style = """
+    <style>
+        div[data-testid="stSidebarNav"] {display: none;}
+    </style>
+"""
+st.markdown(no_sidebar_style, unsafe_allow_html=True)
 
 # Tạo menu trong sidebar
 with st.sidebar:
@@ -34,20 +29,14 @@ with st.sidebar:
         ]),
     ], open_all=True)
 
-    match menu_item:
-        case 'home':
-            st.session_state['menu_item'] = 'home'
-        case 'apple':
-            st.session_state['menu_item'] = 'apple'
-        case 'google':
-            st.session_state['menu_item'] = 'google'
-        case 'products':
-            st.session_state['menu_item'] = 'products'
+    # Chuyển hướng theo menu item được chọn
+    if menu_item == 'home':
+        exec(open('pages/home.py').read(), globals())
+    elif menu_item == 'apple':
+        exec(open('pages/apple.py').read(), globals())
+    elif menu_item == 'google':
+        exec(open('pages/google.py').read(), globals())
+    elif menu_item == 'products':
+        exec(open('pages/products.py').read(), globals())
 
-# Hiển thị trang được chọn
-for page in pages:
-    if page["id"] == st.session_state['menu_item'] and not page.get("disabled", False):
-        exec(open(page["file"]).read(), globals())
-        break
-
-st.sidebar.write("Menu item selected: ", st.session_state['menu_item'])
+st.sidebar.write("Menu item selected: ", menu_item)
