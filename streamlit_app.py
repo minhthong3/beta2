@@ -1,5 +1,9 @@
 import streamlit as st
 import streamlit_antd_components as sac
+from pages.apple import Apple
+from pages.home import Home
+from pages.products import Products
+from pages.google import Google
 
 # CSS để ẩn sidebar mặc định
 no_sidebar_style = """
@@ -19,14 +23,13 @@ with st.sidebar:
         ]),
     ], open_all=True)
 
-# Chuyển hướng theo menu item được chọn
-if menu_item == 'Home':
-     st.switch_page('pages/home.py')
-elif menu_item == 'Apple':
-   st.switch_page('pages/apple.py')
-elif menu_item == 'Google':
-    st.switch_page('pages/google.py')
-elif menu_item == 'Products':
-    st.switch_page('pages/products.py')
-
+match menu_item:
+    case 'Home':
+        st.switch_page('pages/home.py')
+    case 'Apple':
+        st.switch_page('pages/apple.py')
+    case 'Google':
+        st.switch_page('pages/google.py')
+     case 'Products':
+        st.switch_page('pages/products.py')
 
