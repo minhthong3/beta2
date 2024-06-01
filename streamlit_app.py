@@ -30,6 +30,5 @@ match menu_item:
         st.switch_page('pages/apple.py')
     case 'Google':
         st.switch_page('pages/google.py')
-     case 'Products':
+    case 'Products':
         st.switch_page('pages/products.py')
-
