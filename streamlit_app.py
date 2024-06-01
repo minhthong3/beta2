@@ -21,12 +21,12 @@ with st.sidebar:
 
 # Link to the respective pages using st.page_link
 if menu_item == 'Home':
-    st.page_link("pages/home.py", label="Home Page", icon="house-fill")
+    st.page_link("pages/home.py")
 elif menu_item == 'Apple':
-    st.page_link("pages/apple.py", label="Apple Page", icon="apple")
+    st.page_link("pages/apple.py")
 elif menu_item == 'Google':
-    st.page_link("pages/google.py", label="Google Page", icon="google")
+    st.page_link("pages/google.py")
 elif menu_item == 'Products':
-    st.page_link("pages/products.py", label="Products Page", icon="box-fill")
+    st.page_link("pages/products.py")
 
 st.sidebar.write("Menu item selected: ", menu_item)
