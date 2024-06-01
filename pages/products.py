@@ -1,4 +1,4 @@
 import streamlit as st
 
-def Product():
+def Products():
     st.title('Welcome to apple page!!')
