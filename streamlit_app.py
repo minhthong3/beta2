@@ -19,14 +19,18 @@ with st.sidebar:
         ]),
     ], open_all=True)
 
-# Link to the respective pages using st.page_link
+# Link to the respective pages using exec
 if menu_item == 'Home':
-    st.page_link("pages/home.py")
+    st.write("Home Page")
+    exec(open('pages/home.py').read(), globals())
 elif menu_item == 'Apple':
-    st.page_link("pages/apple.py")
+    st.write("Apple Page")
+    exec(open('pages/apple.py').read(), globals())
 elif menu_item == 'Google':
-    st.page_link("pages/google.py")
+    st.write("Google Page")
+    exec(open('pages/google.py').read(), globals())
 elif menu_item == 'Products':
-    st.page_link("pages/products.py")
+    st.write("Products Page")
+    exec(open('pages/products.py').read(), globals())
 
-st.sidebar.write("Menu item selected: ", menu_item)
+
