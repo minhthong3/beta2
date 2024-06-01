@@ -1,4 +1,4 @@
 import streamlit as st
 
-st.title("Home Page")
-st.write("Welcome to the Home Page!")
+def Home():
+    st.title('Welcome to Home page!!')
