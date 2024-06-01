@@ -1,6 +1,4 @@
 import streamlit as st
 
-st.title("Apple Page")
-st.write("This is the Apple Page.")
-st.write("This is the Apple Page.")
-st.write("This is the Apple Page.")
+def Apple():
+    st.title('Welcome to apple page!!')
