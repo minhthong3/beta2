@@ -12,26 +12,21 @@ st.markdown(no_sidebar_style, unsafe_allow_html=True)
 # Tạo menu trong sidebar
 with st.sidebar:
     menu_item = sac.menu([
-        sac.MenuItem('Home', icon='house-fill', href='?page=home'),
+        sac.MenuItem('Home', icon='house-fill'),
         sac.MenuItem('Products', icon='box-fill', children=[
-            sac.MenuItem('Apple', icon='apple', href='?page=apple'),
-            sac.MenuItem('Google', icon='google', href='?page=google'),
+            sac.MenuItem('Apple', icon='apple'),
+            sac.MenuItem('Google', icon='google'),
         ]),
     ], open_all=True)
 
-# Lấy giá trị của tham số 'page' từ URL
-page = st.experimental_get_query_params().get('page', ['home'])[0]
+# Chuyển hướng theo menu item được chọn
+if menu_item == 'Home':
+    exec(open('pages/home.py').read())
+elif menu_item == 'Apple':
+    st.page_link ('pages/apple.py')
+elif menu_item == 'Google':
+    exec(open('pages/google.py').read())
+elif menu_item == 'Products':
+    exec(open('pages/products.py').read())
 
-# Chuyển hướng theo giá trị của 'page'
-if page == 'home':
-    exec(open('pages/home.py').read(), globals())
-elif page == 'apple':
-    exec(open('pages/apple.py').read(), globals())
-elif page == 'google':
-    exec(open('pages/google.py').read(), globals())
-elif page == 'products':
-    exec(open('pages/products.py').read(), globals())
-else:
-    st.error("Page not found")
-
-
+st.sidebar.write("Menu item selected: ", menu_item)
