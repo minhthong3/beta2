@@ -19,18 +19,14 @@ with st.sidebar:
         ]),
     ], open_all=True)
 
-match menu_item:
-    case 'Home':
-        st.write("Home Page")
-        exec(open('pages/home.py').read(), globals())
-    case 'Apple':
-        st.write("Apple Page")
-        exec(open('pages/apple.py').read(), globals())
-    case 'Google':
-        st.write("Google Page")
-        exec(open('pages/google.py').read(), globals())
-    case 'Products':
-        st.write("Products Page")
-        exec(open('pages/products.py').read(), globals())
+# Link to the respective pages using st.page_link
+if menu_item == 'Home':
+    st.page_link("pages/home.py", label="Home Page", icon="house-fill")
+elif menu_item == 'Apple':
+    st.page_link("pages/apple.py", label="Apple Page", icon="apple")
+elif menu_item == 'Google':
+    st.page_link("pages/google.py", label="Google Page", icon="google")
+elif menu_item == 'Products':
+    st.page_link("pages/products.py", label="Products Page", icon="box-fill")
 
 st.sidebar.write("Menu item selected: ", menu_item)
