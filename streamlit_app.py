@@ -1,7 +1,7 @@
 import streamlit as st
-from streamlit_navigation_bar import st_navbar
 import streamlit_antd_components as sac
 import toml
+import os
 
 # Đọc cấu hình trang từ file pages.toml
 def load_pages():
@@ -47,5 +47,7 @@ with st.sidebar:
 # Hiển thị trang được chọn
 for page in pages:
     if page["id"] == st.session_state['menu_item'] and not page.get("disabled", False):
-        exec(open(page["file"]).read())
+        exec(open(page["file"]).read(), globals())
         break
+
+st.sidebar.write("Menu item selected: ", st.session_state['menu_item'])
