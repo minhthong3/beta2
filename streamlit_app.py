@@ -12,31 +12,26 @@ st.markdown(no_sidebar_style, unsafe_allow_html=True)
 # Tạo menu trong sidebar
 with st.sidebar:
     menu_item = sac.menu([
-        sac.MenuItem('home', icon='house-fill', tag=[sac.Tag('Tag1', color='green'), sac.Tag('Tag2', 'red')]),
-        sac.MenuItem('products', icon='box-fill', children=[
-            sac.MenuItem('apple', icon='apple'),
-            sac.MenuItem('other', icon='git', description='other items', children=[
-                sac.MenuItem('google', icon='google', description='item description'),
-                sac.MenuItem('gitlab', icon='gitlab'),
-                sac.MenuItem('wechat', icon='wechat'),
-            ]),
-        ]),
-        sac.MenuItem('disabled', disabled=True),
-        sac.MenuItem(type='divider'),
-        sac.MenuItem('link', type='group', children=[
-            sac.MenuItem('antd-menu', icon='heart-fill', href='https://ant.design/components/menu#menu'),
-            sac.MenuItem('bootstrap-icon', icon='bootstrap-fill', href='https://icons.getbootstrap.com/'),
+        sac.MenuItem('Home', icon='house-fill', href='?page=home'),
+        sac.MenuItem('Products', icon='box-fill', children=[
+            sac.MenuItem('Apple', icon='apple', href='?page=apple'),
+            sac.MenuItem('Google', icon='google', href='?page=google'),
         ]),
     ], open_all=True)
 
-    # Chuyển hướng theo menu item được chọn
-    if menu_item == 'home':
-        exec(open('pages/home.py').read(), globals())
-    elif menu_item == 'apple':
-        exec(open('pages/apple.py').read(), globals())
-    elif menu_item == 'google':
-        exec(open('pages/google.py').read(), globals())
-    elif menu_item == 'products':
-        exec(open('pages/products.py').read(), globals())
+# Lấy giá trị của tham số 'page' từ URL
+page = st.experimental_get_query_params().get('page', ['home'])[0]
 
-st.sidebar.write("Menu item selected: ", menu_item)
+# Chuyển hướng theo giá trị của 'page'
+if page == 'home':
+    exec(open('pages/home.py').read(), globals())
+elif page == 'apple':
+    exec(open('pages/apple.py').read(), globals())
+elif page == 'google':
+    exec(open('pages/google.py').read(), globals())
+elif page == 'products':
+    exec(open('pages/products.py').read(), globals())
+else:
+    st.error("Page not found")
+
+
