@@ -21,12 +21,12 @@ with st.sidebar:
 
 # Chuyển hướng theo menu item được chọn
 if menu_item == 'Home':
-    exec(open('pages/home.py').read())
+     st.page_link('pages/home.py')
 elif menu_item == 'Apple':
-    st.page_link ('pages/apple.py')
+    st.page_link('pages/apple.py')
 elif menu_item == 'Google':
-    exec(open('pages/google.py').read())
+    st.page_link('pages/google.py')
 elif menu_item == 'Products':
-    exec(open('pages/products.py').read())
+    st.page_link('pages/products.py')
 
-st.sidebar.write("Menu item selected: ", menu_item)
+
