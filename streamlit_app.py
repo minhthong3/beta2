@@ -21,10 +21,16 @@ with st.sidebar:
 
 match menu_item:
     case 'Home':
-        st.switch_page('pages/home')
+        st.write("Home Page")
+        exec(open('pages/home.py').read(), globals())
     case 'Apple':
-        st.switch_page('pages/apple')
+        st.write("Apple Page")
+        exec(open('pages/apple.py').read(), globals())
     case 'Google':
-        st.switch_page('pages/google')
+        st.write("Google Page")
+        exec(open('pages/google.py').read(), globals())
     case 'Products':
-        st.switch_page('pages/products')
+        st.write("Products Page")
+        exec(open('pages/products.py').read(), globals())
+
+st.sidebar.write("Menu item selected: ", menu_item)
