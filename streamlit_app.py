@@ -22,7 +22,7 @@ with st.sidebar:
 # Link to the respective pages using exec
 if menu_item == 'Home':
     st.write("Home Page")
-    exec(open('pages/home.py').read(), globals())
+    exec(open('pages/home.py').read())
 elif menu_item == 'Apple':
     st.write("Apple Page")
     exec(open('pages/apple.py').read(), globals())
