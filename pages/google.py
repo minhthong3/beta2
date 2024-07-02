@@ -10,7 +10,7 @@ def Google():
 
 # Cấu hình xác thực
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name("image.danhmuc/datavnwealth-25a353ea3781.json", scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name("image/datavnwealth-25a353ea3781.json", scope)
 client = gspread.authorize(creds)
 
 # URL của Google Sheets
